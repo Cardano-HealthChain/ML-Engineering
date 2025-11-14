@@ -4,10 +4,6 @@ This is a dedicated microservice that powers the "HealthChain Assistant" AI chat
 
 Its sole responsibility is to receive a chat query from the `api-service`, process it securely, and return a helpful, grounded response. It is designed to act as a community health guide, *not* a diagnostic tool.
 
-➡️ **View the main organization page:** [Link to your GitHub Org]
-
----
-
 ### Technology Stack
 
 * **Framework:** Node.js (or Python/Flask)
@@ -23,30 +19,27 @@ Its sole responsibility is to receive a chat query from the `api-service`, proce
 * **(ML-1.4) Contextual Prompting:** Logic to prepend context to a user's query (e.g., "User is asking about a 'Vaccination Drive' alert they just received").
 * **(ML-1.5) Response & Citation Handling:** Parses the Gemini response and extracts all citation sources to be displayed in the frontend.
 
-### Getting Started
+# Health Assistant Chatbot (Gemini 2.5)
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [repository-url]
-    cd ml-assistant
-    ```
+A friendly, non-diagnostic community health assistant built using **Google Gemini 2.5** Generative AI API.  
+This project exposes a **FastAPI** backend for easy integration with frontend applications.
 
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+---
 
-3.  **Set up environment variables:**
-    Create a `.env` file in the root and add your API key:
-    ```
-    # Service port
-    PORT=3002
+## Features
 
-    # Google AI API Key
-    GEMINI_API_KEY=...
-    ```
+- **Human-like responses:** Provides clear, educational, and safe health information.
+- **Contextual prompting:** Includes context in queries to generate accurate responses.
+- **Citation handling:** Extracts sources and links for information provided.
+- **Rule-based triage:** Handles basic symptom detection and alerts locally.
+- **API-powered retrieval:** Uses Gemini 2.5 model instead of local datasets.
+- **FastAPI endpoints:** Easy integration with frontend or other backend services.
 
-4.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
+##  Requirements
+
+- Python 3.10+
+- FastAPI
+- Uvicorn
+- Requests
+- (Optional) pyngrok and nest_asyncio for testing in Google Colab
+
