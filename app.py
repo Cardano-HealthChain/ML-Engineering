@@ -3,12 +3,15 @@
 import google.generativeai as genai
 from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
+from dotenv import load_dotenv
+import os
 
-genai.configure(api_key="YOUR_API_KEY_HERE")
+load_dotenv()
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel(
     model_name="gemini-2.5-flash",
-    tools=[{"google_search_retrieval": {}}]
 )
 
 SYSTEM_PROMPT = """You are a friendly, safe, non-diagnostic community health assistant."""
