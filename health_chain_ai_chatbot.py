@@ -9,8 +9,6 @@ Original file is located at
 INSTALL DEPENDENCIES
 """
 
-!pip install -q google-generativeai fastapi nest_asyncio pyngrok uvicorn
-
 """IMPORTS LIBARIES"""
 
 import google.generativeai as genai
@@ -18,11 +16,16 @@ from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 import nest_asyncio
 from pyngrok import ngrok
+from dotenv import load_dotenv
+import os
 import uvicorn
+
+"""loading dotenv files"""
+load_dotenv()
 
 """CONFIGURE GEMINI API"""
 
-GEMINI_API_KEY ='AIzaSyBBpdsARm8xImh4gWXXrrSouOvaqMrkmcE'
+GEMINI_API_KEY = os.getenv("HEALTH_CHAIN_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 """Initialize Gemini model with Google Search grounding enabled"""
