@@ -5,6 +5,5 @@ __pycache__/
 .idea/
 *.swp
 *.swo
-*.ipynb
 .DS_STORE
 Thumbs.db
