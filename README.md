@@ -43,3 +43,114 @@ This project exposes a **FastAPI** backend for easy integration with frontend ap
 - Requests
 - (Optional) pyngrok and nest_asyncio for testing in Google Colab
 
+
+
+# Personalized Health Insights API
+
+## Overview
+This project is a backend service that generates personalized health insights from user lifestyle data. It uses Google Gemini 2.5 Flash to return safe, non diagnostic guidance.
+
+The system accepts structured inputs such as age, sleep, hydration, exercise, and symptoms. It then produces clear insights and simple improvement tips.
+
+This is Phase 2 of a larger health intelligence system.
+
+---
+
+## Features
+
+- Personalized health insights based on user data  
+- Safe, non diagnostic responses  
+- Structured API endpoint for backend integration  
+- Secure API key handling using environment variables  
+- Ready for deployment and team integration  
+
+## Tech Stack
+
+- Python  
+- FastAPI  
+- Google Gemini API  
+- Requests  
+- Python Dotenv  
+
+---
+
+## Project Structure
+
+health-insights/
+│
+├── app.py
+├── .env
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+
+
+## How It Works
+
+1. The user sends health data to the API  
+2. The backend formats the data into a structured prompt  
+3. The prompt is sent to Gemini 2.5 Flash  
+4. The AI generates personalized insights  
+5. The API returns the response in JSON format  
+
+
+
+## API Endpoint
+
+### POST /insights
+
+#### Request Body
+
+```json
+{
+  "age": 25,
+  "gender": "male",
+  "sleep_hours": 5,
+  "water_intake": "low",
+  "exercise_per_week": 1,
+  "symptoms": "frequent headaches"
+}
+
+## Security
+
+- API key is stored in `.env`  
+- `.env` is excluded using `.gitignore`  
+- No secrets are exposed in code  
+
+---
+
+## Use Cases
+
+- Health tracking applications  
+- Fitness and wellness platforms  
+- Telehealth support systems  
+- Preventive healthcare tools  
+
+
+
+## Limitations
+
+- Does not provide medical diagnosis  
+- Relies on user input accuracy  
+- Requires internet connection for API calls  
+
+
+
+## Future Improvements
+
+- Automated health alerts  
+- Health prediction engine using ML  
+- User history tracking  
+- Integration with wearable devices  
+
+
+
+## Team Integration
+
+Backend developers can call the API using:POST /insights
+
+
+
+
+
