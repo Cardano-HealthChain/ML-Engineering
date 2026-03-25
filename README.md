@@ -151,6 +151,97 @@ health-insights/
 Backend developers can call the API using:POST /insights
 
 
+#  Automated Health Alerts API
+
+A simple and intelligent API that analyzes user lifestyle data and generates **automated health alerts** using rule-based logic, optionally enhanced with AI for more natural and human-friendly responses.
+
+
+
+##  Project Overview
+
+The **Automated Health Alerts API** helps detect unhealthy patterns in a user’s daily habits such as:
+
+- Poor sleep  
+- Low water intake  
+- Lack of physical activity  
+
+It then generates alerts to guide users toward healthier behavior.
+
+###  System Design Goals
+
+-  Fast (rule-based logic)
+-  Scalable (API-ready)
+-  User-friendly (AI-enhanced responses)
+
+
+
+##  Features
+
+-  Detects unhealthy lifestyle patterns  
+-  Rule-based alert generation  
+-  Optional AI enhancement using Gemini API  
+-  Secure API key handling with `.env`  
+-  REST API built with FastAPI  
+
+
+
+##  Project Structure
+
+##  How It Works
+
+### 1. Rule-Based Detection
+
+The system checks:
+
+- Sleep < 5 hours → Low sleep alert  
+- Water intake = "low" → Hydration alert  
+- Exercise < 2 times/week → Activity alert  
+
+---
+
+### 2. AI Enhancement (Optional)
+
+Alerts are passed to the Gemini API to:
+
+- Improve tone  
+- Make responses more natural  
+- Keep them safe and non-diagnostic  
+
+---
+
+##  Security Best Practices
+
+- Store API keys in `.env`  
+- Add `.env` to `.gitignore`  
+- Never expose API keys in public repositories  
+
+---
+
+##  Dependencies
+
+- FastAPI  
+- Uvicorn  
+- Requests  
+- Python-dotenv  
+- Pydantic  
+
+---
+
+##  Use Cases
+
+- Health tracking apps  
+- Fitness platforms  
+- Preventive healthcare systems  
+- Wellness dashboards  
+
+---
+
+##  Future Improvements
+
+- Real-time notifications (SMS / Email)  
+- Integration with wearable devices  
+- Advanced health scoring system  
+- User history tracking  
 
 
 
