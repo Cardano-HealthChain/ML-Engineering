@@ -151,41 +151,123 @@ health-insights/
 Backend developers can call the API using:POST /insights
 
 
- Automated Health Alerts API
+#  Automated Health Alerts API
 
 A simple and intelligent API that analyzes user lifestyle data and generates **automated health alerts** using rule-based logic, optionally enhanced with AI for more natural and human-friendly responses.
 
-
+---
 
 ##  Project Overview
 
 The **Automated Health Alerts API** helps detect unhealthy patterns in a user’s daily habits such as:
 
-- Poor sleep  
-- Low water intake  
-- Lack of physical activity  
+* Poor sleep
+* Low water intake
+* Lack of physical activity
 
 It then generates alerts to guide users toward healthier behavior.
 
-###  System Design Goals
+This system is designed to be:
 
--  Fast (rule-based logic)
--  Scalable (API-ready)
--  User-friendly (AI-enhanced responses)
+*  Fast (rule-based logic)
+*  Scalable (API-ready)
+*  User-friendly (AI-enhanced responses)
 
-
+---
 
 ##  Features
 
--  Detects unhealthy lifestyle patterns  
--  Rule-based alert generation  
--  Optional AI enhancement using Gemini API  
--  Secure API key handling with `.env`  
--  REST API built with FastAPI  
+*  Detects unhealthy lifestyle patterns
+*  Rule-based alert generation
+*  Optional AI enhancement using Gemini API
+*  Secure API key handling with `.env`
+*  REST API built with FastAPI
 
-
+---
 
 ##  Project Structure
+
+```
+project-folder/
+│
+├── app.py              # Main application file
+├── .env                # Stores API key (not pushed to GitHub)
+├── .gitignore          # Prevents sensitive files from uploading
+└── requirements.txt    # Project dependencies
+```
+
+---
+
+##  Environment Variables
+
+Create a `.env` file in your root directory:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+##  Installation
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or manually:
+
+```bash
+pip install fastapi uvicorn requests python-dotenv pydantic
+```
+
+---
+
+##  Running the Application
+
+Start the server:
+
+```bash
+uvicorn app:app --reload
+```
+
+Server will run at:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+##  API Endpoint
+
+###  Check Health Alerts
+
+**POST** `/alerts/check`
+
+#### Request Body (JSON)
+
+```json
+{
+  "sleep_hours": 4,
+  "water_intake": "low",
+  "exercise_per_week": 1
+}
+```
+
+#### Response Example
+
+```json
+{
+  "status": "success",
+  "alerts": [
+    "You're not getting enough sleep. Try to rest more.",
+    "Your water intake is low. Stay hydrated.",
+    "You may need more physical activity during the week."
+  ]
+}
+```
+
+---
 
 ##  How It Works
 
@@ -193,55 +275,66 @@ It then generates alerts to guide users toward healthier behavior.
 
 The system checks:
 
-- Sleep < 5 hours → Low sleep alert  
-- Water intake = "low" → Hydration alert  
-- Exercise < 2 times/week → Activity alert  
-
----
+* Sleep < 5 hours → Low sleep alert
+* Water intake = "low" → Hydration alert
+* Exercise < 2 times/week → Activity alert
 
 ### 2. AI Enhancement (Optional)
 
 Alerts are passed to the Gemini API to:
 
-- Improve tone  
-- Make responses more natural  
-- Keep them safe and non-diagnostic  
+* Improve tone
+* Make responses more natural
+* Keep them safe and non-diagnostic
+
+---
+
+##  Testing Without Server
+
+You can test directly in Python:
+
+```python
+class Dummy:
+    sleep_hours = 4
+    water_intake = "low"
+    exercise_per_week = 0
+
+print(improve_alerts_with_ai(generate_alerts(Dummy)))
+```
 
 ---
 
 ##  Security Best Practices
 
-- Store API keys in `.env`  
-- Add `.env` to `.gitignore`  
-- Never expose API keys in public repositories  
+* Store API keys in `.env`
+* Add `.env` to `.gitignore`
+* Never expose API keys in public repositories
 
 ---
 
 ##  Dependencies
 
-- FastAPI  
-- Uvicorn  
-- Requests  
-- Python-dotenv  
-- Pydantic  
+* FastAPI
+* Uvicorn
+* Requests
+* Python-dotenv
+* Pydantic
 
 ---
 
 ##  Use Cases
 
-- Health tracking apps  
-- Fitness platforms  
-- Preventive healthcare systems  
-- Wellness dashboards  
+* Health tracking apps
+* Fitness platforms
+* Preventive healthcare systems
+* Wellness dashboards
 
 ---
 
 ##  Future Improvements
 
-- Real-time notifications (SMS / Email)  
-- Integration with wearable devices  
-- Advanced health scoring system  
-- User history tracking  
-
-
+* Real-time notifications (SMS / Email)
+* Integration with wearable devices
+* Advanced health scoring system
+* User history tracking
 
