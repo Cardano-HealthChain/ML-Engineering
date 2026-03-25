@@ -151,7 +151,7 @@ health-insights/
 Backend developers can call the API using:POST /insights
 
 
-#  Automated Health Alerts API
+ Automated Health Alerts API
 
 A simple and intelligent API that analyzes user lifestyle data and generates **automated health alerts** using rule-based logic, optionally enhanced with AI for more natural and human-friendly responses.
 
