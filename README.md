@@ -329,12 +329,66 @@ print(improve_alerts_with_ai(generate_alerts(Dummy)))
 * Preventive healthcare systems
 * Wellness dashboards
 
----
-
 ##  Future Improvements
 
 * Real-time notifications (SMS / Email)
 * Integration with wearable devices
 * Advanced health scoring system
 * User history tracking
+
+
+#  ML Health Prediction Engine API
+
+A machine learning-powered API that predicts a user's health risk level based on lifestyle data, enhanced with AI-generated explanations using the Gemini API.
+
+
+##  Project Overview
+
+The **ML Health Prediction Engine** analyzes user health inputs such as sleep, hydration, exercise, and symptoms to predict a **health risk level**:
+
+-  Low Risk  
+-  Moderate Risk  
+-  High Risk  
+
+This system combines:
+-  Machine Learning (scikit-learn)
+-  FastAPI (for API endpoints)
+-  Gemini AI (for human-friendly explanations)
+-  Secure API key handling using `.env`
+
+##  Features
+
+-  Real ML model using `RandomForestClassifier`
+-  Risk prediction based on lifestyle data
+-  AI-generated explanations using Gemini API
+-  Secure API key management with `.env`
+-  REST API built with FastAPI
+-  Model saving using `joblib`
+-  Ready for future retraining with real user data
+
+How It Works
+1. Data Preprocessing
+
+User input is converted into numerical format:
+
+Water intake → encoded (low=0, medium=1, high=2)
+Symptoms → binary (yes=1, no=0)
+2. Machine Learning Model
+
+A Random Forest Classifier is trained on structured data:
+
+Inputs:
+Sleep hours
+Water intake
+Exercise frequency
+Symptoms
+Output:
+Risk level (0 = Low,
+
+
+
+
+
+
+
 
